@@ -1,6 +1,6 @@
-# deepin Indonesia — Download Site
+# Download Site
 
-Halaman download resmi deepin Linux — [os.deepin.id](https://os.deepin.id)
+Halaman download resmi deepin Linux — [os.deepin.id](https://os.deepin.id/)
 
 ## Setup
 
