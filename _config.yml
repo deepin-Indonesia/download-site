@@ -1,0 +1,38 @@
+# ===== deepin Indonesia — Download Site =====
+# Domain: os.deepin.id
+# Tema dari submodule deepin-theme-site
+
+layouts_dir: _theme/_layouts
+includes_dir: _theme/_includes
+data_dir: _theme/_data
+
+sass:
+  style: compressed
+  load_paths:
+    - _theme/assets/css
+
+# Site settings
+title: Download deepin
+tagline: Unduh deepin Linux — Sistem Operasi Modern & Cantik
+email: deepin@siberin.id
+description: >-
+  Download deepin Linux untuk berbagai arsitektur. deepin adalah distribusi Linux
+  dengan Deepin Desktop Environment (DDE) yang modern, cantik, dan mudah digunakan.
+baseurl: ""
+url: "https://os.deepin.id"
+github_username: deepin-Indonesia
+
+# SEO
+locale: id_ID
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
