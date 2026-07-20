@@ -110,23 +110,32 @@ permalink: /
             <div class="checksum-row"><strong>SHA256</strong><code>f875c9a605bfe6a8425d1d353a3c1ec755bf37f5b0a3231ca19e2145da0ff450</code></div>
             <div class="checksum-row"><strong>MD5</strong><code>3a4aa859ea72034dfb65805941fac372</code></div>
             <div class="verify-guide">
-              <p class="verify-title">💡 Cara Verifikasi</p>
-              <p class="verify-desc">Bandingkan hash file ISO yang kamu download dengan nilai di atas.</p>
-              <div class="verify-cmds">
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                  <code>sha256sum deepin-desktop-community-25.2.0-amd64.iso</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows (PowerShell)</span>
-                  <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
-                  <code>shasum -a 256 deepin-desktop-community-25.2.0-amd64.iso</code>
-                </div>
+              <p class="verify-title">� Copy-paste & jalankan di terminal</p>
+              <p class="verify-desc">Jalankan perintah ini di direktori tempat file ISO didownload untuk verifikasi SHA256:</p>
+              <div class="verify-cmd-block">
+                <code>echo "f875c9a605bfe6a8425d1d353a3c1ec755bf37f5b0a3231ca19e2145da0ff450 *deepin-desktop-community-25.2.0-amd64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-note">✅ Jika output <strong>sama persis</strong> dengan SHA256 di atas, file aman dan tidak korup.</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <div class="verify-ok-block">
+                <code>deepin-desktop-community-25.2.0-amd64.iso: OK</code>
+              </div>
+              <details class="verify-alt">
+                <summary>🪟 Perintah alternatif (Windows / manual)</summary>
+                <div class="verify-alt-cmds">
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-amd64.iso</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <code>shasum -a 256 deepin-desktop-community-25.2.0-amd64.iso</code>
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
         </details>
@@ -173,23 +182,32 @@ permalink: /
             <div class="checksum-row"><strong>SHA256</strong><code>7c5cb76cec53532313f2b1f435d477a651f9b5f7ca2435dfc12eb7be8d3340fe</code></div>
             <div class="checksum-row"><strong>MD5</strong><code>db36fe803a2f0492af1521bb87a0037f</code></div>
             <div class="verify-guide">
-              <p class="verify-title">💡 Cara Verifikasi</p>
-              <p class="verify-desc">Bandingkan hash file ISO yang kamu download dengan nilai di atas.</p>
-              <div class="verify-cmds">
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                  <code>sha256sum deepin-desktop-community-25.2.0-arm64.iso</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows (PowerShell)</span>
-                  <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
-                  <code>shasum -a 256 deepin-desktop-community-25.2.0-arm64.iso</code>
-                </div>
+              <p class="verify-title">� Copy-paste & jalankan di terminal</p>
+              <p class="verify-desc">Jalankan perintah ini di direktori tempat file ISO didownload untuk verifikasi SHA256:</p>
+              <div class="verify-cmd-block">
+                <code>echo "7c5cb76cec53532313f2b1f435d477a651f9b5f7ca2435dfc12eb7be8d3340fe *deepin-desktop-community-25.2.0-arm64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-note">✅ Jika output <strong>sama persis</strong> dengan SHA256 di atas, file aman dan tidak korup.</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <div class="verify-ok-block">
+                <code>deepin-desktop-community-25.2.0-arm64.iso: OK</code>
+              </div>
+              <details class="verify-alt">
+                <summary>🪟 Perintah alternatif (Windows / manual)</summary>
+                <div class="verify-alt-cmds">
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-arm64.iso</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <code>shasum -a 256 deepin-desktop-community-25.2.0-arm64.iso</code>
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
         </details>
@@ -236,23 +254,32 @@ permalink: /
             <div class="checksum-row"><strong>SHA256</strong><code>1835726765d5839481572dbdaf8b8fdb5b2403ed8395cbe06f8d509891fb46c1</code></div>
             <div class="checksum-row"><strong>MD5</strong><code>a140c8df7291c47b05dc7ec38c5f633a</code></div>
             <div class="verify-guide">
-              <p class="verify-title">💡 Cara Verifikasi</p>
-              <p class="verify-desc">Bandingkan hash file ISO yang kamu download dengan nilai di atas.</p>
-              <div class="verify-cmds">
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                  <code>sha256sum deepin-desktop-community-25.2.0-loong64.iso</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows (PowerShell)</span>
-                  <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
-                  <code>shasum -a 256 deepin-desktop-community-25.2.0-loong64.iso</code>
-                </div>
+              <p class="verify-title">� Copy-paste & jalankan di terminal</p>
+              <p class="verify-desc">Jalankan perintah ini di direktori tempat file ISO didownload untuk verifikasi SHA256:</p>
+              <div class="verify-cmd-block">
+                <code>echo "1835726765d5839481572dbdaf8b8fdb5b2403ed8395cbe06f8d509891fb46c1 *deepin-desktop-community-25.2.0-loong64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-note">✅ Jika output <strong>sama persis</strong> dengan SHA256 di atas, file aman dan tidak korup.</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <div class="verify-ok-block">
+                <code>deepin-desktop-community-25.2.0-loong64.iso: OK</code>
+              </div>
+              <details class="verify-alt">
+                <summary>🪟 Perintah alternatif (Windows / manual)</summary>
+                <div class="verify-alt-cmds">
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-loong64.iso</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <code>shasum -a 256 deepin-desktop-community-25.2.0-loong64.iso</code>
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
         </details>
@@ -290,23 +317,32 @@ permalink: /
             <div class="checksum-row"><strong>SHA256</strong><code>ea5266d13a640eabc3b4cb7b893097a6416c5d457ae10bbd6bde0fc94e3ebe4a</code></div>
             <div class="checksum-row"><strong>MD5</strong><code>e62424f1a6c152d6e041a7c4ddf7d237</code></div>
             <div class="verify-guide">
-              <p class="verify-title">💡 Cara Verifikasi</p>
-              <p class="verify-desc">Bandingkan hash file ISO yang kamu download dengan nilai di atas.</p>
-              <div class="verify-cmds">
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                  <code>sha256sum deepin-desktop-community-25.2.0-riscv64.iso</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows (PowerShell)</span>
-                  <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
-                </div>
-                <div class="verify-cmd">
-                  <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
-                  <code>shasum -a 256 deepin-desktop-community-25.2.0-riscv64.iso</code>
-                </div>
+              <p class="verify-title">� Copy-paste & jalankan di terminal</p>
+              <p class="verify-desc">Jalankan perintah ini di direktori tempat file ISO didownload untuk verifikasi SHA256:</p>
+              <div class="verify-cmd-block">
+                <code>echo "ea5266d13a640eabc3b4cb7b893097a6416c5d457ae10bbd6bde0fc94e3ebe4a *deepin-desktop-community-25.2.0-riscv64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-note">✅ Jika output <strong>sama persis</strong> dengan SHA256 di atas, file aman dan tidak korup.</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <div class="verify-ok-block">
+                <code>deepin-desktop-community-25.2.0-riscv64.iso: OK</code>
+              </div>
+              <details class="verify-alt">
+                <summary>🪟 Perintah alternatif (Windows / manual)</summary>
+                <div class="verify-alt-cmds">
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-riscv64.iso</code>
+                  </div>
+                  <div class="verify-cmd">
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <code>shasum -a 256 deepin-desktop-community-25.2.0-riscv64.iso</code>
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
         </details>

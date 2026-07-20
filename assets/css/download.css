@@ -303,50 +303,98 @@
 .verify-desc {
   font-size: .85rem;
   color: #64748b;
+  margin-bottom: .65rem;
+}
+
+/* Main copy-paste command */
+.verify-cmd-block {
+  background: #1e293b;
+  border-radius: 8px;
+  padding: .85rem 1rem;
+  margin-bottom: .85rem;
+  overflow-x: auto;
+}
+
+.verify-cmd-block code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: .82rem;
+  color: #e2e8f0;
+  background: none;
+  padding: 0;
+  white-space: pre;
+  word-break: break-all;
+}
+
+/* OK output block */
+.verify-ok-block {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 6px;
+  padding: .55rem .85rem;
   margin-bottom: .85rem;
 }
 
-.verify-cmds {
+.verify-ok-block code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: .82rem;
+  color: #166534;
+  background: none;
+  padding: 0;
+}
+
+/* Alternative commands (collapsible) */
+.verify-alt {
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.verify-alt summary {
+  padding: .6rem .85rem;
+  cursor: pointer;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #f8fafc;
+  user-select: none;
+}
+
+.verify-alt summary:hover {
+  color: #1a6dd4;
+}
+
+.verify-alt-cmds {
+  padding: .5rem;
   display: flex;
   flex-direction: column;
-  gap: .5rem;
-  margin-bottom: .85rem;
+  gap: .4rem;
 }
 
 .verify-cmd {
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 8px;
-  padding: .65rem .85rem;
+  border-radius: 6px;
+  padding: .55rem .75rem;
 }
 
 .verify-os {
   display: block;
-  font-size: .75rem;
-  font-weight: 600;
-  color: #64748b;
-  margin-bottom: .35rem;
+  font-size: .7rem;
+  font-weight: 700;
+  color: #94a3b8;
+  margin-bottom: .25rem;
   text-transform: uppercase;
   letter-spacing: .5px;
 }
 
 .verify-cmd code {
   font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  font-size: .8rem;
-  color: #1e40af;
+  font-size: .78rem;
+  color: #334155;
   background: none;
   padding: 0;
   word-break: break-all;
   display: block;
-}
-
-.verify-note {
-  font-size: .82rem;
-  color: #475569;
-  padding: .5rem .75rem;
-  background: #f0fdf4;
-  border-radius: 6px;
-  border-left: 3px solid #22c55e;
 }
 
 /* Extra links */
@@ -376,5 +424,7 @@
   .checksum-row code { font-size: .72rem; }
   .dl-checksums summary { padding: 1rem 1.25rem; }
   .checksum-box { padding: 0 1.25rem 1.25rem; }
-  .verify-cmd code { font-size: .7rem; }
+  .verify-cmd-block code { font-size: .7rem; }
+  .verify-ok-block code { font-size: .7rem; }
+  .verify-cmd code { font-size: .68rem; }
 }
