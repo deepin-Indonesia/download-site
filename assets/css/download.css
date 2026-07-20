@@ -276,6 +276,89 @@
   background: #e0e7ff;
 }
 
+/* ==========================================================================
+   Release Info Section
+   ========================================================================== */
+.release-info {
+  padding: 3rem 1.5rem;
+  background: #f8fafc;
+}
+
+.release-card {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0f9ff 50%, #ecfdf5 100%);
+  border: 1px solid #bfdbfe;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 2px 16px rgba(0,0,0,.04);
+}
+
+.release-badge {
+  display: inline-block;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: .82rem;
+  font-weight: 700;
+  padding: .35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+  letter-spacing: .5px;
+}
+
+.release-card h2 {
+  font-size: 1.7rem;
+  color: #0f172a;
+  margin-bottom: .75rem;
+}
+
+.release-card p {
+  color: #475569;
+  max-width: 680px;
+  margin: 0 auto 1.25rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.release-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.release-features span {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: .45rem .85rem;
+  border-radius: 8px;
+  font-size: .88rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.release-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .7rem 1.6rem;
+  background: #1a6dd4;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .2s;
+}
+
+.release-link:hover {
+  background: #1e40af;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(26,109,212,.35);
+}
+
 /* Responsive */
 @media (max-width: 640px) {
   .download-hero h1 { font-size: 1.6rem; }
@@ -284,4 +367,7 @@
   .dl-mirrors { grid-template-columns: 1fr 1fr; padding: 1.25rem; }
   .checksum-row { flex-direction: column; align-items: flex-start; gap: .2rem; }
   .checksum-row code { font-size: .72rem; }
+  .release-card { padding: 1.5rem 1.25rem; }
+  .release-card h2 { font-size: 1.3rem; }
+  .release-card p { font-size: .95rem; }
 }
