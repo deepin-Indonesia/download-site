@@ -10,9 +10,8 @@ permalink: /
 <!-- Hero -->
 <section class="download-hero">
   <div class="container">
-    <img src="{{ '/assets/images/deepin-id.png' | relative_url }}" alt="deepin" class="dl-hero-logo" width="96" height="96">
-    <h1>Download <strong>deepin 25.2.0</strong></h1>
-    <p class="dl-hero-sub">Latest Release — pilih arsitektur yang sesuai dengan perangkat Anda</p>
+    <img src="{{ '/assets/images/deepin-id.png' | relative_url }}" alt="deepin" class="dl-hero-logo" width="112" height="112">
+    <h1>Download <strong>deepin</strong></h1>
   </div>
 </section>
 
