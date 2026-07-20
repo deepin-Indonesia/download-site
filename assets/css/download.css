@@ -306,6 +306,25 @@
   margin-bottom: .65rem;
 }
 
+/* Method label (SHA256/MD5) */
+.verify-method {
+  margin-bottom: .65rem;
+}
+
+.verify-method-label {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 700;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: .3rem;
+}
+
+.verify-method:first-child .verify-method-label {
+  color: #1a6dd4;
+}
+
 /* Main copy-paste command */
 .verify-cmd-block {
   background: #1e293b;
