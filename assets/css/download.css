@@ -32,6 +32,11 @@
   margin: 0 auto;
 }
 
+/* Headline spacing — jarak ke download section */
+.headline {
+  margin-bottom: 2rem;
+}
+
 /* Architecture Tabs */
 .arch-tabs {
   display: flex;
