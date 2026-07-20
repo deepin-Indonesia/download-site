@@ -124,7 +124,7 @@ permalink: /
                 ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
               </p>
               <details class="verify-alt">
-                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
+                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Linux / Windows / macOS)</summary>
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
@@ -132,11 +132,11 @@ permalink: /
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
                     <code>sha256sum deepin-desktop-community-25.2.0-amd64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
                     <code>shasum -a 256 deepin-desktop-community-25.2.0-amd64.iso</code>
                   </div>
                 </div>
@@ -201,7 +201,7 @@ permalink: /
                 ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
               </p>
               <details class="verify-alt">
-                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
+                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Linux / Windows / macOS)</summary>
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
@@ -209,11 +209,11 @@ permalink: /
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
                     <code>sha256sum deepin-desktop-community-25.2.0-arm64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
                     <code>shasum -a 256 deepin-desktop-community-25.2.0-arm64.iso</code>
                   </div>
                 </div>
@@ -278,7 +278,7 @@ permalink: /
                 ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
               </p>
               <details class="verify-alt">
-                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
+                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Linux / Windows / macOS)</summary>
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
@@ -286,11 +286,11 @@ permalink: /
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
                     <code>sha256sum deepin-desktop-community-25.2.0-loong64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
                     <code>shasum -a 256 deepin-desktop-community-25.2.0-loong64.iso</code>
                   </div>
                 </div>
@@ -346,7 +346,7 @@ permalink: /
                 ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
               </p>
               <details class="verify-alt">
-                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
+                <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Linux / Windows / macOS)</summary>
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
@@ -354,11 +354,11 @@ permalink: /
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
                     <code>sha256sum deepin-desktop-community-25.2.0-riscv64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS (manual)</span>
+                    <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
                     <code>shasum -a 256 deepin-desktop-community-25.2.0-riscv64.iso</code>
                   </div>
                 </div>
