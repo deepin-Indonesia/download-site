@@ -39,9 +39,9 @@ permalink: /
 <!-- Architecture Tabs -->
 <section class="download-section">
   <div class="container">
-    <div class="section-header">
-      <h2>Download <strong>deepin 25.2.0</strong></h2>
-      <p class="section-subtitle">Latest Release — pilih arsitektur yang sesuai dengan perangkat Anda</p>
+    <div class="dl-version-heading">
+      <h2><strong>25.2.0</strong></h2>
+      <p>Latest Release — pilih arsitektur yang sesuai dengan perangkat Anda</p>
     </div>
     <div class="arch-tabs" role="tablist">
       <button class="arch-tab active" data-arch="amd64" role="tab" aria-selected="true">
