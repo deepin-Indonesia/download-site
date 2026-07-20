@@ -128,12 +128,12 @@ permalink: /
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
-                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-amd64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                    <code>sha256sum deepin-desktop-community-25.2.0-amd64.iso</code>
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
@@ -205,12 +205,12 @@ permalink: /
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
-                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-arm64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                    <code>sha256sum deepin-desktop-community-25.2.0-arm64.iso</code>
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
@@ -282,12 +282,12 @@ permalink: /
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
-                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-loong64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                    <code>sha256sum deepin-desktop-community-25.2.0-loong64.iso</code>
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
@@ -350,12 +350,12 @@ permalink: /
                 <div class="verify-alt-cmds">
                   <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
-                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
+                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux (manual)</span>
+                    <code>sha256sum deepin-desktop-community-25.2.0-riscv64.iso</code>
                   </div>
                   <div class="verify-cmd">
-                    <span class="verify-os"><i class="fa-brands fa-linux"></i> Linux</span>
-                    <code>sha256sum deepin-desktop-community-25.2.0-riscv64.iso</code>
+                    <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
+                    <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
                   </div>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-apple"></i> macOS</span>
