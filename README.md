@@ -2,6 +2,15 @@
 
 Halaman download deepin Indonesia — [os.deepin.id](https://os.deepin.id/)
 
+> **Versi terbaru:** deepin 25.2.0
+
+**Fitur:**
+- 🖥️ 5 tab arsitektur — AMD64, ARM64, LoongArch, RISC-V, WSL
+- 📋 Copy-paste verifikasi checksum — SHA256 + MD5, langsung `OK`/`FAILED`
+- 🔔 Section rilis terbaru dari [deepin.id](https://deepin.id)
+- 🌐 Multi-mirror — CDN, Torrent, SourceForge, Baidu Cloud, Google Drive
+- 📱 Responsive — mobile-friendly
+
 ## Setup
 
 ```bash
@@ -57,16 +66,14 @@ git commit -m "Update theme"
 
 ### Workflow
 
-1. Commit → push ke `preview`
-2. Preview di Netlify
-3. Jika OK → merge ke `main`
-
 ```bash
-# Push ke preview
-git checkout preview && git merge main && git push origin preview && git checkout main
+# Commit & push ke preview
+git add .
+git commit -m "pesan"
+git push origin main:preview
 
-# Merge ke production
-git checkout main && git merge preview && git push origin main
+# Jika OK → push ke main
+git push origin main
 ```
 
 ## Arsitektur yang Didukung
