@@ -1,7 +1,7 @@
 ﻿---
 ---
 
-// ===== Import dari theme-site =====
-// Semua style diambil dari _theme/assets/css/main.scss
+// ===== Import dari theme-site via _sass/ =====
+// Jekyll native load path: _sass/ → theme-main → _theme/assets/css/main
 // Cukup edit di theme-site, site ini akan otomatis mengikuti
-@import "main";
+@import "theme-main";
