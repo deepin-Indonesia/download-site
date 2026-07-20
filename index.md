@@ -16,23 +16,22 @@ permalink: /
   </div>
 </section>
 
-<!-- Release Info -->
-<section class="release-info">
+<!-- Headline: Rilis Terbaru -->
+<section class="headline">
   <div class="container">
-    <div class="release-card">
-      <span class="release-badge"><i class="fa-solid fa-bullhorn"></i> RILIS TERBARU</span>
-      <h2>deepin 25.2.0 Kini Tersedia!</h2>
-      <p>Versi terbaru <strong>deepin 25.2.0</strong> hadir dengan berbagai peningkatan performa, perbaikan bug, dan fitur baru yang membuat pengalaman menggunakan deepin semakin lancar. Update ini membawa penyempurnaan pada Deepin Desktop Environment (DDE), dukungan hardware yang lebih luas, serta peningkatan keamanan sistem.</p>
-      <div class="release-features">
-        <span><i class="fa-solid fa-desktop"></i> DDE 7.0</span>
-        <span><i class="fa-solid fa-robot"></i> UOS AI</span>
-        <span><i class="fa-solid fa-shield-halved"></i> Immutable System</span>
-        <span><i class="fa-solid fa-box"></i> Linyaps</span>
-        <span><i class="fa-solid fa-microchip"></i> Multi-arch</span>
+    <div class="headline-card">
+      <span class="headline-badge">
+        <i class="fas fa-bullhorn"></i> RILIS TERBARU
+      </span>
+      <div class="headline-body">
+        <h2>deepin 25.2.0 Kini Tersedia!</h2>
+        <p>
+          Versi terbaru <strong>deepin 25.2.0</strong> hadir dengan berbagai peningkatan performa, perbaikan bug, dan fitur baru yang membuat pengalaman menggunakan deepin semakin lancar. Update ini membawa penyempurnaan pada Deepin Desktop Environment (DDE), dukungan hardware yang lebih luas, serta peningkatan keamanan sistem.
+        </p>
+        <a href="https://deepin.id/news/deepin-25-2-update/" class="btn btn-primary" target="_blank" rel="noopener">
+          <i class="fas fa-book-open"></i> Baca Selengkapnya
+        </a>
       </div>
-      <a href="https://deepin.id/news/deepin-25-2-update/" class="release-link" target="_blank" rel="noopener">
-        <i class="fa-solid fa-book-open"></i> Baca Selengkapnya →
-      </a>
     </div>
   </div>
 </section>
