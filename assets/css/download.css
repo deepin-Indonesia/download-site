@@ -286,6 +286,69 @@
   color: #334155;
 }
 
+/* Verification Guide */
+.verify-guide {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+.verify-title {
+  font-weight: 700;
+  font-size: .92rem;
+  color: #0f172a;
+  margin-bottom: .35rem;
+}
+
+.verify-desc {
+  font-size: .85rem;
+  color: #64748b;
+  margin-bottom: .85rem;
+}
+
+.verify-cmds {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-bottom: .85rem;
+}
+
+.verify-cmd {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: .65rem .85rem;
+}
+
+.verify-os {
+  display: block;
+  font-size: .75rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: .35rem;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+
+.verify-cmd code {
+  font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  font-size: .8rem;
+  color: #1e40af;
+  background: none;
+  padding: 0;
+  word-break: break-all;
+  display: block;
+}
+
+.verify-note {
+  font-size: .82rem;
+  color: #475569;
+  padding: .5rem .75rem;
+  background: #f0fdf4;
+  border-radius: 6px;
+  border-left: 3px solid #22c55e;
+}
+
 /* Extra links */
 .dl-extra-link {
   display: inline-block;
@@ -311,4 +374,7 @@
   .dl-mirrors { grid-template-columns: 1fr 1fr; padding: 1.25rem; }
   .checksum-row { flex-direction: column; align-items: flex-start; gap: .2rem; }
   .checksum-row code { font-size: .72rem; }
+  .dl-checksums summary { padding: 1rem 1.25rem; }
+  .checksum-box { padding: 0 1.25rem 1.25rem; }
+  .verify-cmd code { font-size: .7rem; }
 }
