@@ -115,13 +115,18 @@ permalink: /
               <div class="verify-cmd-block">
                 <code>echo "f875c9a605bfe6a8425d1d353a3c1ec755bf37f5b0a3231ca19e2145da0ff450 *deepin-desktop-community-25.2.0-amd64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini:</p>
               <div class="verify-ok-block">
                 <code>deepin-desktop-community-25.2.0-amd64.iso: OK</code>
               </div>
+              <p class="verify-note">
+                ✅ <strong>OK</strong> = file ISO asli, aman, dan tidak korup — siap digunakan.<br>
+                ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
+              </p>
               <details class="verify-alt">
                 <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
                 <div class="verify-alt-cmds">
+                  <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-amd64.iso -Algorithm SHA256</code>
@@ -187,13 +192,18 @@ permalink: /
               <div class="verify-cmd-block">
                 <code>echo "7c5cb76cec53532313f2b1f435d477a651f9b5f7ca2435dfc12eb7be8d3340fe *deepin-desktop-community-25.2.0-arm64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini:</p>
               <div class="verify-ok-block">
                 <code>deepin-desktop-community-25.2.0-arm64.iso: OK</code>
               </div>
+              <p class="verify-note">
+                ✅ <strong>OK</strong> = file ISO asli, aman, dan tidak korup — siap digunakan.<br>
+                ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
+              </p>
               <details class="verify-alt">
                 <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
                 <div class="verify-alt-cmds">
+                  <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-arm64.iso -Algorithm SHA256</code>
@@ -259,13 +269,18 @@ permalink: /
               <div class="verify-cmd-block">
                 <code>echo "1835726765d5839481572dbdaf8b8fdb5b2403ed8395cbe06f8d509891fb46c1 *deepin-desktop-community-25.2.0-loong64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini:</p>
               <div class="verify-ok-block">
                 <code>deepin-desktop-community-25.2.0-loong64.iso: OK</code>
               </div>
+              <p class="verify-note">
+                ✅ <strong>OK</strong> = file ISO asli, aman, dan tidak korup — siap digunakan.<br>
+                ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
+              </p>
               <details class="verify-alt">
                 <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
                 <div class="verify-alt-cmds">
+                  <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-loong64.iso -Algorithm SHA256</code>
@@ -322,13 +337,18 @@ permalink: /
               <div class="verify-cmd-block">
                 <code>echo "ea5266d13a640eabc3b4cb7b893097a6416c5d457ae10bbd6bde0fc94e3ebe4a *deepin-desktop-community-25.2.0-riscv64.iso" | shasum -a 256 --check</code>
               </div>
-              <p class="verify-desc">Kamu akan mendapat output seperti ini (berarti <strong>OK</strong>):</p>
+              <p class="verify-desc">Kamu akan mendapat output seperti ini:</p>
               <div class="verify-ok-block">
                 <code>deepin-desktop-community-25.2.0-riscv64.iso: OK</code>
               </div>
+              <p class="verify-note">
+                ✅ <strong>OK</strong> = file ISO asli, aman, dan tidak korup — siap digunakan.<br>
+                ❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.
+              </p>
               <details class="verify-alt">
                 <summary><i class="fa-solid fa-code"></i> Perintah alternatif (Windows / manual)</summary>
                 <div class="verify-alt-cmds">
+                  <p class="verify-alt-desc">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan SHA256 di atas — harus sama persis.</strong></p>
                   <div class="verify-cmd">
                     <span class="verify-os"><i class="fa-brands fa-windows"></i> Windows PowerShell</span>
                     <code>Get-FileHash .\deepin-desktop-community-25.2.0-riscv64.iso -Algorithm SHA256</code>
