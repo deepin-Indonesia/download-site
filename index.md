@@ -29,7 +29,7 @@ permalink: /
           Versi terbaru <strong>deepin 25.2.0</strong> hadir dengan berbagai peningkatan performa, perbaikan bug, dan fitur baru yang membuat pengalaman menggunakan deepin semakin lancar. Update ini membawa penyempurnaan pada Deepin Desktop Environment (DDE), dukungan hardware yang lebih luas, serta peningkatan keamanan sistem.
         </p>
         <a href="https://deepin.id/news/deepin-25-2-update/" class="btn btn-primary" target="_blank" rel="noopener">
-          <i class="fas fa-book-open"></i> Baca Selengkapnya
+          <i class="fas fa-arrow-right"></i> Baca Selengkapnya
         </a>
       </div>
     </div>
