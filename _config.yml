@@ -24,10 +24,10 @@ github_username: deepin-Indonesia
 
 # SEO
 locale: id_ID
+google_analytics: G-2J4TLB9W7H
 markdown: kramdown
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
   - jekyll-sitemap
 
 exclude:
