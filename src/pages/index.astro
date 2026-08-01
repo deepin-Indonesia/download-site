@@ -106,7 +106,7 @@ const arches: Arch[] = [
 
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         {arches.map((a) => (
-          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold ${a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25 cursor-default' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer transition-colors'}`} data-arch={a.id} style={a.active ? 'transition:none' : ''}>
+          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold ${a.active ? '!bg-deepin-600 !text-white shadow-lg shadow-deepin-600/25 cursor-default' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer'}`} data-arch={a.id}>
             {a.label} <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>
           </button>
         ))}
@@ -118,7 +118,7 @@ const arches: Arch[] = [
 
           <div class="flex flex-wrap justify-center gap-3 mb-8">
             {arch.mirrors.map((m) => (
-              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-between w-44 min-h-[155px]">
+              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-center gap-2 w-44 h-40">
                 <i class={`fas ${m.icon.startsWith('fa-brands') ? m.icon : `fa-solid ${m.icon}`} text-xl text-deepin-600 mb-2`} />
                 <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
                 <p class="text-[10px] text-gray-400 mt-0.5">{m.sub}</p>
