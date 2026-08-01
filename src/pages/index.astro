@@ -116,9 +116,9 @@ const arches: Arch[] = [
         <div id={`panel-${arch.id}`} class={`arch-panel ${arch.active ? '' : 'hidden'}`}>
           <p class="text-center text-sm text-gray-500 mb-6">{arch.desc}</p>
 
-          <div class="flex flex-wrap justify-center gap-3 mb-8">
+          <div class="grid justify-center gap-3 mb-8" style={`grid-template-columns:repeat(${Math.min(arch.mirrors.length,5)},176px)`}>
             {arch.mirrors.map((m) => (
-              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-center gap-2 w-44 h-40">
+              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center justify-center gap-2 h-40">
                 <i class={`fas ${m.icon.startsWith('fa-brands') ? m.icon : `fa-solid ${m.icon}`} text-xl text-deepin-600 mb-2`} />
                 <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
                 <p class="text-[10px] text-gray-400 mt-0.5">{m.sub}</p>
