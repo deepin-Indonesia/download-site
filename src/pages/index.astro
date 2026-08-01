@@ -13,7 +13,7 @@ interface Arch {
 const arches: Arch[] = [
   {
     id: 'amd64', label: 'AMD64', sub: 'x86_64', active: true,
-    desc: 'Untuk prosesor Intel & AMD — kebanyakan PC/laptop modern',
+    desc: 'Untuk prosesor Intel & AMD',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/amd64/deepin-desktop-community-25.2.0-amd64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-amd64.iso.torrent', sub: 'P2P download' },
@@ -27,7 +27,7 @@ const arches: Arch[] = [
   },
   {
     id: 'arm64', label: 'ARM64', sub: 'aarch64',
-    desc: 'Untuk perangkat ARM — Apple Silicon, Raspberry Pi 4/5, Snapdragon X',
+    desc: 'Untuk perangkat ARM — Apple Silicon, Raspberry Pi, Snapdragon X',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/arm64/deepin-desktop-community-25.2.0-arm64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-arm64.iso.torrent', sub: 'P2P download' },
@@ -41,7 +41,7 @@ const arches: Arch[] = [
   },
   {
     id: 'loong64', label: 'LoongArch', sub: 'loong64',
-    desc: 'Untuk prosesor Loongson — arsitektur buatan Tiongkok',
+    desc: 'Untuk prosesor Loongson',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/loong64/deepin-desktop-community-25.2.0-loong64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-loong64.iso.torrent', sub: 'P2P download' },
@@ -55,7 +55,7 @@ const arches: Arch[] = [
   },
   {
     id: 'riscv', label: 'RISC-V', sub: 'Preview',
-    desc: 'Untuk perangkat RISC-V — arsitektur open-source masa depan',
+    desc: 'Untuk perangkat RISC-V',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-riscv64.iso.torrent', sub: 'P2P download' },
@@ -67,7 +67,7 @@ const arches: Arch[] = [
   },
   {
     id: 'wsl', label: 'WSL', sub: 'Windows',
-    desc: 'Untuk Windows Subsystem for Linux — jalankan deepin di Windows',
+    desc: 'Untuk Windows Subsystem for Linux',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/wsl/deepin-wsl-25.2.0-amd64.zip', sub: 'CDN77 accelerated' },
       { name: 'Google Drive', icon: 'fa-brands fa-google-drive', url: 'https://drive.google.com/drive/folders/1Y8Ix4K2QoTf_hSboQRD2_lZktXaFLQ--?usp=sharing', sub: 'Folder mirror' },
@@ -106,7 +106,7 @@ const arches: Arch[] = [
 
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         {arches.map((a) => (
-          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25 cursor-default' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer'}`} data-arch={a.id}>
+          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25 cursor-default hover:bg-deepin-600 hover:text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-gray-600 cursor-pointer'}`} data-arch={a.id}>
             {a.label} <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>
           </button>
         ))}
@@ -118,7 +118,7 @@ const arches: Arch[] = [
 
           <div class="flex flex-wrap justify-center gap-3 mb-8">
             {arch.mirrors.map((m) => (
-              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center w-[175px]">
+              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center flex flex-col items-center w-[170px] h-full">
                 <i class={`fas ${m.icon.startsWith('fa-brands') ? m.icon : `fa-solid ${m.icon}`} text-xl text-deepin-600 mb-2`} />
                 <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
                 <p class="text-[10px] text-gray-400 mt-0.5">{m.sub}</p>
@@ -128,63 +128,45 @@ const arches: Arch[] = [
           </div>
 
           {arch.sha256 && (
-            <details class="card max-w-3xl mx-auto text-sm group">
-              <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors p-5 flex items-center gap-2">
-                <span class="w-8 h-8 rounded-lg bg-deepin-50 flex items-center justify-center shrink-0"><i class="fas fa-shield-halved text-deepin-500" /></span>
-                Verifikasi ISO
-                <i class="fas fa-chevron-down text-[10px] opacity-40 ml-auto group-open:rotate-180 transition-transform" />
+            <details class="card max-w-3xl mx-auto text-sm">
+              <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors p-5 select-none">
+                <i class="fas fa-shield-halved mr-2 text-deepin-500" /> Verifikasi ISO
               </summary>
-              <div class="px-5 pb-5 space-y-4 text-gray-600 border-t border-gray-100 pt-4">
-                <div class="grid sm:grid-cols-2 gap-3">
-                  <div class="bg-gray-50 rounded-xl p-4">
-                    <div class="flex items-center gap-2 mb-2"><span class="w-5 h-5 rounded bg-blue-100 flex items-center justify-center"><i class="fas fa-fingerprint text-[10px] text-blue-600" /></span><span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wider">SHA256</span></div>
-                    <pre class="text-[11px] font-mono text-gray-700 break-all whitespace-pre-wrap leading-relaxed">{arch.sha256}</pre>
+              <div class="px-5 pb-5 space-y-5 text-gray-600 border-t border-gray-100 pt-5">
+                <div class="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">SHA256</p>
+                    <pre class="bg-gray-50 rounded-lg p-3 text-[11px] font-mono text-gray-700 break-all whitespace-pre-wrap leading-relaxed">{arch.sha256}</pre>
                   </div>
-                  <div class="bg-gray-50 rounded-xl p-4">
-                    <div class="flex items-center gap-2 mb-2"><span class="w-5 h-5 rounded bg-amber-100 flex items-center justify-center"><i class="fas fa-hashtag text-[10px] text-amber-600" /></span><span class="font-mono text-[10px] font-bold text-gray-400 uppercase tracking-wider">MD5</span></div>
-                    <pre class="text-[11px] font-mono text-gray-700 break-all whitespace-pre-wrap leading-relaxed">{arch.md5}</pre>
-                  </div>
-                </div>
-
-                <div class="bg-deepin-50 rounded-xl p-4 text-xs space-y-3">
-                  <p class="font-semibold text-deepin-700 flex items-center gap-2"><span class="w-5 h-5 rounded bg-deepin-100 flex items-center justify-center"><i class="fas fa-terminal text-[10px] text-deepin-600" /></span>Copy-paste & jalankan di terminal</p>
-                  <p class="text-deepin-600 text-[11px]">Pilih <strong>salah satu</strong> — SHA256 lebih direkomendasikan:</p>
-                  <div class="bg-white rounded-lg p-3 font-mono text-[11px] text-deepin-800 break-all space-y-2">
-                    <div><span class="text-[10px] text-gray-400 font-semibold">SHA256 (disarankan)</span><br /><code class="text-deepin-800">echo "{arch.sha256} *{arch.iso}" | shasum -a 256 --check</code></div>
-                    <div class="pt-2 border-t border-gray-100"><span class="text-[10px] text-gray-400 font-semibold">MD5</span><br /><code class="text-deepin-800">echo "{arch.md5} *{arch.iso}" | md5sum --check</code></div>
-                  </div>
-                  <p class="text-deepin-600 text-[11px]">Output yang diharapkan:</p>
-                  <div class="bg-green-50 border border-green-200 rounded-lg p-2.5 font-mono text-[11px] text-green-700 flex items-center gap-2">
-                    <i class="fas fa-check-circle text-green-500 text-xs" /> {arch.iso}: <strong>OK</strong>
-                  </div>
-                  <div class="text-[11px] space-y-0.5">
-                    <p><span class="text-green-600">✅ <strong>OK</strong></span> = file ISO asli, aman, siap digunakan.</p>
-                    <p><span class="text-red-500">❌ <strong>FAILED</strong></span> = file rusak/tidak asli — jangan digunakan, download ulang.</p>
+                  <div>
+                    <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">MD5</p>
+                    <pre class="bg-gray-50 rounded-lg p-3 text-[11px] font-mono text-gray-700 break-all whitespace-pre-wrap leading-relaxed">{arch.md5}</pre>
                   </div>
                 </div>
 
-                <details class="bg-gray-50 rounded-xl p-4">
-                  <summary class="cursor-pointer text-xs font-semibold text-gray-700 hover:text-deepin-600 flex items-center gap-2">
-                    <span class="w-5 h-5 rounded bg-gray-200 flex items-center justify-center"><i class="fas fa-code text-[10px] text-gray-500" /></span>
-                    Perintah alternatif (Linux / Windows / macOS)
-                  </summary>
-                  <p class="text-[11px] text-gray-500 mt-3 mb-3">Jalankan lalu <strong>bandingkan output hash-nya — harus sama persis.</strong></p>
-                  <div class="space-y-1.5 text-[11px]">
-                    {[
-                      { os: 'Linux', icon: 'fa-brands fa-linux', cmd: `sha256sum ${arch.iso}` },
-                      { os: 'Linux', icon: 'fa-brands fa-linux', cmd: `md5sum ${arch.iso}` },
-                      { os: 'Windows PS', icon: 'fa-brands fa-windows', cmd: `Get-FileHash .\\${arch.iso} -Algorithm SHA256` },
-                      { os: 'Windows PS', icon: 'fa-brands fa-windows', cmd: `Get-FileHash .\\${arch.iso} -Algorithm MD5` },
-                      { os: 'macOS', icon: 'fa-brands fa-apple', cmd: `shasum -a 256 ${arch.iso}` },
-                      { os: 'macOS', icon: 'fa-brands fa-apple', cmd: `md5 ${arch.iso}` },
-                    ].map((alt) => (
-                      <div class="flex items-center gap-2 bg-white rounded-lg px-3 py-2">
-                        <i class={`${alt.icon} text-gray-400 w-4 text-center`} />
-                        <code class="font-mono text-gray-700 break-all">{alt.cmd}</code>
-                      </div>
-                    ))}
+                <div class="bg-deepin-50 rounded-xl p-5">
+                  <p class="font-semibold text-deepin-800 mb-3 text-xs flex items-center gap-1.5">
+                    <i class="fas fa-terminal text-deepin-500" /> Verifikasi via Terminal
+                  </p>
+                  <div class="space-y-3">
+                    <div class="bg-white rounded-lg p-3 font-mono text-[11px]">
+                      <p class="text-[10px] text-gray-400 mb-1 font-semibold">SHA256 (disarankan)</p>
+                      <code class="text-deepin-800 break-all">echo "{arch.sha256} *{arch.iso}" | shasum -a 256 --check</code>
+                    </div>
+                    <div class="bg-white rounded-lg p-3 font-mono text-[11px]">
+                      <p class="text-[10px] text-gray-400 mb-1 font-semibold">MD5</p>
+                      <code class="text-deepin-800 break-all">echo "{arch.md5} *{arch.iso}" | md5sum --check</code>
+                    </div>
                   </div>
-                </details>
+                  <div class="mt-4 bg-green-50 border border-green-100 rounded-lg p-3 flex items-center gap-2 text-[11px]">
+                    <i class="fas fa-check-circle text-green-500" />
+                    <span class="font-mono text-green-700">Output yang benar: <strong>{arch.iso}: OK</strong></span>
+                  </div>
+                  <p class="text-[11px] text-deepin-600 mt-3">
+                    ✅ <strong>OK</strong> = file asli, aman digunakan &nbsp;|&nbsp;
+                    ❌ <strong>FAILED</strong> = file rusak, download ulang
+                  </p>
+                </div>
               </div>
             </details>
           )}
