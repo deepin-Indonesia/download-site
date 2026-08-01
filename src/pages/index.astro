@@ -1,9 +1,19 @@
 ---
 import Layout from '@/components/Layout.astro';
 
-const arches = [
+interface Mirror {
+  name: string; icon: string; url: string; sub: string;
+}
+interface Arch {
+  id: string; label: string; sub: string; active?: boolean;
+  desc: string; mirrors: Mirror[];
+  sha256?: string; md5?: string; iso?: string;
+}
+
+const arches: Arch[] = [
   {
-    id: 'amd64', label: 'AMD64', sub: 'x86_64', active: true, desc: 'Untuk prosesor Intel & AMD — kebanyakan PC/laptop modern',
+    id: 'amd64', label: 'AMD64', sub: 'x86_64', active: true,
+    desc: 'Untuk prosesor Intel & AMD — kebanyakan PC/laptop modern',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/amd64/deepin-desktop-community-25.2.0-amd64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-amd64.iso.torrent', sub: 'P2P download' },
@@ -16,7 +26,8 @@ const arches = [
     iso: 'deepin-desktop-community-25.2.0-amd64.iso',
   },
   {
-    id: 'arm64', label: 'ARM64', sub: 'aarch64', desc: 'Untuk perangkat ARM — Apple Silicon, Raspberry Pi 4/5, Snapdragon X',
+    id: 'arm64', label: 'ARM64', sub: 'aarch64',
+    desc: 'Untuk perangkat ARM — Apple Silicon, Raspberry Pi 4/5, Snapdragon X',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/arm64/deepin-desktop-community-25.2.0-arm64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-arm64.iso.torrent', sub: 'P2P download' },
@@ -29,48 +40,58 @@ const arches = [
     iso: 'deepin-desktop-community-25.2.0-arm64.iso',
   },
   {
-    id: 'loong64', label: 'LoongArch', sub: 'loong64', desc: 'Untuk prosesor Loongson — arsitektur Tiongkok',
+    id: 'loong64', label: 'LoongArch', sub: 'loong64',
+    desc: 'Untuk prosesor Loongson — arsitektur buatan Tiongkok',
     mirrors: [
       { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/loong64/deepin-desktop-community-25.2.0-loong64.iso', sub: 'CDN77 accelerated' },
       { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-loong64.iso.torrent', sub: 'P2P download' },
-      { name: 'SourceForge', icon: 'fa-server', url: 'https://sourceforge.net/projects/deepin/files/25.2.0/loong64/', sub: 'Mirror global' },
-      { name: 'Baidu Cloud', icon: 'fa-cloud', url: 'https://pan.baidu.com/s/1xIlYaWjJf84t5fkUnt7Qgg?pwd=deep', sub: 'pass: deep' },
-      { name: 'Google Drive', icon: 'fa-brands fa-google-drive', url: 'https://drive.google.com/drive/folders/1fdIrL7YasF-YM8m4YYQTGfRJiqKMa2_4?usp=sharing', sub: 'Folder mirror' },
+      { name: 'SourceForge', icon: 'fa-server', url: 'https://sourceforge.net/projects/deepin/files/25.2.0/loong64/deepin-desktop-community-25.2.0-loong64.iso/download', sub: 'Mirror global' },
+      { name: 'Baidu Cloud', icon: 'fa-cloud', url: 'https://pan.baidu.com/s/1Fun9ta2VG33qT8u4nvYCGw?pwd=deep', sub: 'pass: deep' },
+      { name: 'Google Drive', icon: 'fa-brands fa-google-drive', url: 'https://drive.google.com/drive/folders/1-sOdShGZ-gT1peN9WmgM6m-q2rlwPT05?usp=sharing', sub: 'Folder mirror' },
     ],
+    sha256: '1835726765d5839481572dbdaf8b8fdb5b2403ed8395cbe06f8d509891fb46c1',
+    md5: 'a140c8df7291c47b05dc7ec38c5f633a',
     iso: 'deepin-desktop-community-25.2.0-loong64.iso',
   },
-  { id: 'riscv', label: 'RISC-V', sub: 'Preview', desc: 'Arsitektur masa depan — dukungan preview' },
-  { id: 'wsl', label: 'WSL', sub: 'Windows', desc: 'Untuk Windows Subsystem for Linux' },
+  {
+    id: 'riscv', label: 'RISC-V', sub: 'Preview',
+    desc: 'Untuk perangkat RISC-V — arsitektur open-source masa depan',
+    mirrors: [
+      { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/riscv64/deepin-desktop-community-25.2.0-riscv64.iso', sub: 'CDN77 accelerated' },
+      { name: 'Torrent', icon: 'fa-cloud-arrow-down', url: 'https://storage.deepin.org/static/v25/deepin-desktop-community-25.2.0-riscv64.iso.torrent', sub: 'P2P download' },
+      { name: 'GitHub', icon: 'fa-brands fa-github', url: 'https://deepin-community.github.io/sig-deepin-ports/images/riscv64', sub: 'Community ports' },
+    ],
+    sha256: 'ea5266d13a640eabc3b4cb7b893097a6416c5d457ae10bbd6bde0fc94e3ebe4a',
+    md5: 'e62424f1a6c152d6e041a7c4ddf7d237',
+    iso: 'deepin-desktop-community-25.2.0-riscv64.iso',
+  },
+  {
+    id: 'wsl', label: 'WSL', sub: 'Windows',
+    desc: 'Untuk Windows Subsystem for Linux — jalankan deepin di Windows',
+    mirrors: [
+      { name: 'Direct Download', icon: 'fa-bolt', url: 'https://cdimage.deepin.com/releases/25.2.0/wsl/deepin-wsl-25.2.0-amd64.zip', sub: 'CDN77 accelerated' },
+      { name: 'Google Drive', icon: 'fa-brands fa-google-drive', url: 'https://drive.google.com/drive/folders/1Y8Ix4K2QoTf_hSboQRD2_lZktXaFLQ--?usp=sharing', sub: 'Folder mirror' },
+    ],
+  },
 ];
-
-const active = arches.find(a => a.active) || arches[0];
 ---
 
-<Layout title="Download deepin 25" description="Unduh deepin Linux 25.2.0 untuk berbagai arsitektur. deepin adalah distribusi Linux modern dengan DDE 7.0 yang cantik dan mudah digunakan.">
-  <!-- Hero -->
+<Layout title="Download deepin 25" description="Unduh deepin Linux 25.2.0 untuk berbagai arsitektur — AMD64, ARM64, Loong64, RISC-V, dan WSL.">
   <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-deepin-900 py-16 lg:py-24">
     <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(26,109,212,0.15)_0%,transparent_50%)]" />
     <div class="container-main relative text-center">
       <img src="/images/deepin-id.png" alt="deepin" width="96" height="96" class="w-24 h-24 mx-auto mb-5 drop-shadow-xl" />
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-white">
-        Download <span class="text-deepin-400">deepin</span>
-      </h1>
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white">Download <span class="text-deepin-400">deepin</span></h1>
       <p class="mt-3 text-deepin-200 text-lg">Unduh deepin Linux — Sistem Operasi Modern & Cantik</p>
     </div>
   </section>
 
-  <!-- Headline Banner -->
+  <!-- Headline -->
   <section class="py-6 bg-deepin-50 border-b border-deepin-100">
     <div class="container-main flex flex-col sm:flex-row items-center justify-center gap-2 text-center">
-      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-deepin-600 text-white text-xs font-semibold">
-        <i class="fas fa-bullhorn text-[10px]" /> RILIS TERBARU
-      </span>
-      <p class="text-sm text-deepin-800 font-medium">
-        deepin 25.2.0 kini tersedia! Peningkatan signifikan di Treeland, UOS AI, dan performa.
-      </p>
-      <a href="https://news.deepin.id/2026/07/08/deepin-25-2-release/" class="text-sm text-deepin-600 font-semibold hover:underline whitespace-nowrap">
-        Baca selengkapnya <i class="fas fa-arrow-right text-[10px] ml-0.5" />
-      </a>
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-deepin-600 text-white text-xs font-semibold"><i class="fas fa-bullhorn text-[10px]" /> RILIS TERBARU</span>
+      <p class="text-sm text-deepin-800 font-medium">deepin 25.2.0 kini tersedia! Peningkatan signifikan di Treeland, UOS AI, dan performa.</p>
+      <a href="https://news.deepin.id/2026/07/08/deepin-25-2-release/" class="text-sm text-deepin-600 font-semibold hover:underline whitespace-nowrap">Baca selengkapnya <i class="fas fa-arrow-right text-[10px] ml-0.5" /></a>
     </div>
   </section>
 
@@ -78,96 +99,86 @@ const active = arches.find(a => a.active) || arches[0];
   <section class="py-12 bg-white">
     <div class="container-main">
       <div class="text-center mb-8">
-        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-deepin-50 text-deepin-700 text-xs font-semibold tracking-wide uppercase">
-          <i class="fas fa-star text-[10px]" /> Latest Release
-        </span>
-        <h2 class="text-3xl font-extrabold text-gray-900 mt-3">
-          <span class="text-deepin-600">25.2.0</span>
-        </h2>
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-deepin-50 text-deepin-700 text-xs font-semibold tracking-wide uppercase"><i class="fas fa-star text-[10px]" /> Latest Release</span>
+        <h2 class="text-3xl font-extrabold text-gray-900 mt-3"><span class="text-deepin-600">25.2.0</span></h2>
         <p class="text-gray-500 mt-1">Pilih arsitektur yang sesuai dengan perangkat Anda</p>
       </div>
 
-      <!-- Arch Tabs -->
-      <div class="flex flex-wrap justify-center gap-2 mb-8" id="arch-tabs">
+      <div class="flex flex-wrap justify-center gap-2 mb-8">
         {arches.map((a) => (
-          <button
-            class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
-              a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-            }`}
-            data-arch={a.id}
-          >
-            {a.label}
-            {a.sub && <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>}
+          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`} data-arch={a.id}>
+            {a.label} <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>
           </button>
         ))}
       </div>
 
-      <!-- Arch Panels -->
       {arches.map((arch) => (
         <div id={`panel-${arch.id}`} class={`arch-panel ${arch.active ? '' : 'hidden'}`}>
-          {arch.mirrors ? (
-            <>
-              <p class="text-center text-sm text-gray-500 mb-6">{arch.desc}</p>
-              <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 mb-8">
-                {arch.mirrors.map((m) => (
-                  <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center">
-                    <i class={`fas ${m.icon.startsWith('fa-brands') ? m.icon : `fa-solid ${m.icon}`} text-xl text-deepin-600 mb-2`} />
-                    <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
-                    {m.sub && <p class="text-[10px] text-gray-400 mt-0.5">{m.sub}</p>}
-                    <span class="text-xs text-deepin-600 mt-2 inline-flex items-center gap-1 group-hover:underline">
-                      Download <i class="fas fa-arrow-right text-[10px]" />
-                    </span>
-                  </a>
-                ))}
-              </div>
-              {arch.sha256 && (
-                <details class="card p-5 max-w-3xl mx-auto text-sm mb-6">
-                  <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors">
-                    <i class="fas fa-shield-halved mr-2 text-deepin-500" /> Verifikasi ISO
-                  </summary>
-                  <div class="mt-4 space-y-3 text-gray-600">
-                    <div class="grid sm:grid-cols-2 gap-3">
-                      <div class="bg-gray-50 rounded-lg p-3">
-                        <span class="font-mono text-[10px] font-bold text-gray-400 uppercase">SHA256</span>
-                        <pre class="mt-1 text-[11px] font-mono break-all whitespace-pre-wrap">{arch.sha256}</pre>
+          <p class="text-center text-sm text-gray-500 mb-6">{arch.desc}</p>
+
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-3 mb-8">
+            {arch.mirrors.map((m) => (
+              <a href={m.url} target="_blank" rel="noopener" class="card p-4 group hover:-translate-y-1 transition-all duration-300 text-center">
+                <i class={`fas ${m.icon.startsWith('fa-brands') ? m.icon : `fa-solid ${m.icon}`} text-xl text-deepin-600 mb-2`} />
+                <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
+                <p class="text-[10px] text-gray-400 mt-0.5">{m.sub}</p>
+                <span class="text-xs text-deepin-600 mt-2 inline-flex items-center gap-1 group-hover:underline">Download <i class="fas fa-arrow-right text-[10px]" /></span>
+              </a>
+            ))}
+          </div>
+
+          {arch.sha256 && (
+            <details class="card p-5 max-w-3xl mx-auto text-sm">
+              <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors"><i class="fas fa-shield-halved mr-2 text-deepin-500" /> Verifikasi ISO</summary>
+              <div class="mt-4 space-y-4 text-gray-600">
+                <div class="grid sm:grid-cols-2 gap-3">
+                  <div class="bg-gray-50 rounded-lg p-3"><span class="font-mono text-[10px] font-bold text-gray-400 uppercase">SHA256</span><pre class="mt-1 text-[11px] font-mono break-all whitespace-pre-wrap">{arch.sha256}</pre></div>
+                  <div class="bg-gray-50 rounded-lg p-3"><span class="font-mono text-[10px] font-bold text-gray-400 uppercase">MD5</span><pre class="mt-1 text-[11px] font-mono break-all whitespace-pre-wrap">{arch.md5}</pre></div>
+                </div>
+
+                <div class="bg-deepin-50 rounded-lg p-4 text-xs space-y-2">
+                  <p class="font-semibold text-deepin-700"><i class="fas fa-terminal mr-1" />Copy-paste & jalankan di terminal</p>
+                  <p class="text-deepin-600">Pilih <strong>salah satu</strong> — SHA256 lebih direkomendasikan:</p>
+                  <div class="bg-white rounded-lg p-2.5 font-mono text-[11px] text-deepin-800 break-all"><span class="block text-[10px] text-gray-400 mb-1">SHA256 (disarankan)</span>echo "{arch.sha256} *{arch.iso}" | shasum -a 256 --check</div>
+                  <div class="bg-white rounded-lg p-2.5 font-mono text-[11px] text-deepin-800 break-all"><span class="block text-[10px] text-gray-400 mb-1">MD5</span>echo "{arch.md5} *{arch.iso}" | md5sum --check</div>
+                  <p class="text-deepin-600 mt-3">Kamu akan mendapat output seperti ini:</p>
+                  <div class="bg-green-50 border border-green-200 rounded-lg p-2.5 font-mono text-[11px] text-green-800">{arch.iso}: OK</div>
+                  <p class="text-deepin-600 mt-2">✅ <strong>OK</strong> = file ISO asli, aman, dan tidak korup — siap digunakan.<br />❌ Jika muncul <strong>FAILED</strong>, file rusak atau tidak asli — <strong>jangan digunakan</strong>, download ulang.</p>
+                </div>
+
+                <details class="bg-gray-50 rounded-lg p-4">
+                  <summary class="cursor-pointer text-xs font-semibold text-gray-700 hover:text-deepin-600"><i class="fas fa-code mr-1" /> Perintah alternatif (Linux / Windows / macOS)</summary>
+                  <p class="text-xs text-gray-500 mt-2 mb-3">Jalankan salah satu perintah di bawah, lalu <strong>bandingkan output hash-nya dengan nilai di atas — harus sama persis.</strong></p>
+                  <div class="space-y-2 text-[11px]">
+                    {[
+                      { os: 'Linux — SHA256', cmd: `sha256sum ${arch.iso}` },
+                      { os: 'Linux — MD5', cmd: `md5sum ${arch.iso}` },
+                      { os: 'Windows PowerShell — SHA256', cmd: `Get-FileHash .\\${arch.iso} -Algorithm SHA256` },
+                      { os: 'Windows PowerShell — MD5', cmd: `Get-FileHash .\\${arch.iso} -Algorithm MD5` },
+                      { os: 'macOS — SHA256', cmd: `shasum -a 256 ${arch.iso}` },
+                      { os: 'macOS — MD5', cmd: `md5 ${arch.iso}` },
+                    ].map((alt) => (
+                      <div class="flex flex-col sm:flex-row sm:items-center gap-1">
+                        <span class="font-semibold text-gray-500 w-48 shrink-0">{alt.os}</span>
+                        <code class="bg-white rounded px-2 py-1 font-mono text-gray-800 break-all">{alt.cmd}</code>
                       </div>
-                      <div class="bg-gray-50 rounded-lg p-3">
-                        <span class="font-mono text-[10px] font-bold text-gray-400 uppercase">MD5</span>
-                        <pre class="mt-1 text-[11px] font-mono break-all whitespace-pre-wrap">{arch.md5}</pre>
-                      </div>
-                    </div>
-                    <div class="bg-deepin-50 rounded-lg p-3 text-xs space-y-2">
-                      <p class="font-semibold text-deepin-700"><i class="fas fa-terminal mr-1" />Copy-paste & jalankan di terminal:</p>
-                      <div class="bg-white rounded p-2 font-mono text-[11px] text-deepin-800 break-all">
-                        echo "{arch.sha256} *{arch.iso}" | shasum -a 256 --check
-                      </div>
-                      <p class="text-deepin-600">✅ <strong>OK</strong> = file asli, aman. ❌ <strong>FAILED</strong> = file rusak, download ulang.</p>
-                    </div>
+                    ))}
                   </div>
                 </details>
-              )}
-            </>
-          ) : (
-            <div class="card p-10 text-center max-w-lg mx-auto">
-              <i class="fas fa-clock text-4xl text-gray-300 mb-4" />
-              <h3 class="font-bold text-gray-700 text-lg">Segera Hadir</h3>
-              <p class="text-gray-500 text-sm mt-1">Dukungan arsitektur {arch.label} sedang dalam pengembangan.</p>
-            </div>
+              </div>
+            </details>
           )}
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Help CTA -->
   <section class="py-12 bg-gray-50">
     <div class="container-main text-center">
       <i class="fas fa-circle-question text-3xl text-deepin-300 mb-4" />
       <h3 class="text-xl font-bold text-gray-900 mb-2">Butuh bantuan instalasi?</h3>
       <p class="text-gray-500 mb-6">Komunitas kami siap membantu kamu di Telegram.</p>
-      <a href="https://t.me/Linux_deepin_ID" target="_blank" rel="noopener" class="btn-primary">
-        <i class="fab fa-telegram-plane" /> Tanya di Telegram
-      </a>
+      <a href="https://t.me/Linux_deepin_ID" target="_blank" rel="noopener" class="btn-primary"><i class="fab fa-telegram-plane" /> Tanya di Telegram</a>
     </div>
   </section>
 </Layout>
@@ -176,8 +187,9 @@ const active = arches.find(a => a.active) || arches[0];
   document.querySelectorAll('.arch-tab').forEach(tab => {
     tab.addEventListener('click', () => {
       const arch = tab.dataset.arch!;
-      document.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('bg-deepin-600', 'text-white', 'shadow-lg', 'shadow-deepin-600/25'));
-      tab.classList.add('bg-deepin-600', 'text-white', 'shadow-lg', 'shadow-deepin-600/25');
+      document.querySelectorAll('.arch-tab').forEach(t => { t.classList.remove('bg-deepin-600','text-white','shadow-lg','shadow-deepin-600/25'); t.classList.add('bg-gray-100','text-gray-600'); });
+      tab.classList.remove('bg-gray-100','text-gray-600');
+      tab.classList.add('bg-deepin-600','text-white','shadow-lg','shadow-deepin-600/25');
       document.querySelectorAll('.arch-panel').forEach(p => p.classList.add('hidden'));
       document.getElementById(`panel-${arch}`)?.classList.remove('hidden');
     });
