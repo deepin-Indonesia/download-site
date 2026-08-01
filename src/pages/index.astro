@@ -106,7 +106,7 @@ const arches: Arch[] = [
 
       <div class="flex flex-wrap justify-center gap-2 mb-8">
         {arches.map((a) => (
-          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold ${a.active ? '!bg-deepin-600 !text-white shadow-lg shadow-deepin-600/25 cursor-default' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer'}`} data-arch={a.id}>
+          <button class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold ${a.active ? 'shadow-lg shadow-deepin-600/25 cursor-default' : 'bg-gray-100 text-gray-600 hover:bg-gray-200 cursor-pointer'}`} data-arch={a.id} style={a.active ? 'background-color:#1a6dd4;color:#fff' : ''}>
             {a.label} <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>
           </button>
         ))}
@@ -209,11 +209,13 @@ const arches: Arch[] = [
     tab.addEventListener('click', () => {
       const arch = tab.dataset.arch!;
       document.querySelectorAll('.arch-tab').forEach(t => {
-        t.classList.remove('bg-deepin-600','text-white','shadow-lg','shadow-deepin-600/25','cursor-default');
+        t.classList.remove('shadow-lg','shadow-deepin-600/25','cursor-default');
         t.classList.add('bg-gray-100','text-gray-600','cursor-pointer');
+        t.removeAttribute('style');
       });
       tab.classList.remove('bg-gray-100','text-gray-600','cursor-pointer');
-      tab.classList.add('bg-deepin-600','text-white','shadow-lg','shadow-deepin-600/25','cursor-default');
+      tab.classList.add('shadow-lg','shadow-deepin-600/25','cursor-default');
+      tab.setAttribute('style','background-color:#1a6dd4;color:#fff');
       document.querySelectorAll('.arch-panel').forEach(p => p.classList.add('hidden'));
       document.getElementById(`panel-${arch}`)?.classList.remove('hidden');
     });
