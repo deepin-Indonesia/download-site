@@ -132,7 +132,7 @@ const arches: Arch[] = [
               <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors p-5 select-none">
                 <i class="fas fa-shield-halved mr-2 text-deepin-500" /> Verifikasi ISO
               </summary>
-              <div class="px-5 pb-5 space-y-5 text-gray-600 border-t border-gray-100 pt-5">
+              <div class="px-5 pb-5 space-y-6 text-gray-600 border-t border-gray-100 pt-6">
                 <div class="grid sm:grid-cols-2 gap-4">
                   <div>
                     <p class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">SHA256</p>
@@ -167,9 +167,12 @@ const arches: Arch[] = [
                     ❌ <strong>FAILED</strong> = file rusak, download ulang
                   </p>
 
-                  <details class="mt-3">
-                    <summary class="cursor-pointer text-[11px] font-semibold text-deepin-700 hover:text-deepin-800">Perintah alternatif (Linux / Windows / macOS)</summary>
-                    <div class="mt-2 space-y-1.5 text-[11px]">
+                <!-- Alt commands section -->
+                <div class="border-t border-gray-200 pt-5">
+                  <details>
+                    <summary class="cursor-pointer text-[11px] font-semibold text-gray-600 hover:text-deepin-600">Perintah alternatif (Linux / Windows / macOS)</summary>
+                    <p class="text-[11px] text-gray-400 mt-3 mb-2">Jalankan lalu <strong>bandingkan output hash-nya — harus sama persis.</strong></p>
+                    <div class="space-y-1.5 text-[11px]">
                       {[
                         { os: 'Linux', icon: 'fa-brands fa-linux', cmd: `sha256sum ${arch.iso}` },
                         { os: 'Linux', icon: 'fa-brands fa-linux', cmd: `md5sum ${arch.iso}` },
