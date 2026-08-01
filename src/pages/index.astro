@@ -1,0 +1,157 @@
+---
+import Layout from '@/components/Layout.astro';
+
+const arches = [
+  {
+    id: 'amd64', label: 'AMD64', sub: 'x86_64', active: true,
+    mirrors: [
+      { name: 'Direct Download', icon: 'fa-download', url: 'https://cdimage.deepin.com/releases/25.2.0/deepin-desktop-community-25.2.0-amd64.iso', color: 'text-blue-600' },
+      { name: 'Torrent', icon: 'fa-magnet', url: 'https://storage.deepin.org/tracker/deepin-desktop-community-25.2.0-amd64.iso.torrent', color: 'text-green-600' },
+      { name: 'SourceForge', icon: 'fa-server', url: 'https://sourceforge.net/projects/deepin/files/25.2.0/', color: 'text-orange-600' },
+      { name: 'Google Drive', icon: 'fa-google-drive', url: 'https://drive.google.com/drive/folders/1OZCiHMY4xH', color: 'text-yellow-600' },
+    ],
+    checksums: { sha256: 'a1b2c3d4e5f6...', md5: '1234567890ab...' },
+  },
+  {
+    id: 'arm64', label: 'ARM64', sub: 'aarch64',
+    mirrors: [
+      { name: 'Direct Download', icon: 'fa-download', url: 'https://cdimage.deepin.com/releases/25.2.0/deepin-desktop-community-25.2.0-arm64.iso', color: 'text-blue-600' },
+      { name: 'Torrent', icon: 'fa-magnet', url: 'https://storage.deepin.org/tracker/deepin-desktop-community-25.2.0-arm64.iso.torrent', color: 'text-green-600' },
+      { name: 'SourceForge', icon: 'fa-server', url: 'https://sourceforge.net/projects/deepin/files/25.2.0/', color: 'text-orange-600' },
+      { name: 'Google Drive', icon: 'fa-google-drive', url: 'https://drive.google.com/drive/folders/1OZCiHMY4xH', color: 'text-yellow-600' },
+    ],
+    checksums: { sha256: 'b2c3d4e5f6a1...', md5: '2345678901ab...' },
+  },
+  {
+    id: 'loong64', label: 'LoongArch', sub: 'loong64',
+    mirrors: [
+      { name: 'Direct Download', icon: 'fa-download', url: 'https://cdimage.deepin.com/releases/25.2.0/deepin-desktop-community-25.2.0-loong64.iso', color: 'text-blue-600' },
+      { name: 'Torrent', icon: 'fa-magnet', url: 'https://storage.deepin.org/tracker/deepin-desktop-community-25.2.0-loong64.iso.torrent', color: 'text-green-600' },
+    ],
+    checksums: { sha256: 'c3d4e5f6a1b2...', md5: '3456789012ab...' },
+  },
+  { id: 'riscv', label: 'RISC-V', sub: 'Preview' },
+  { id: 'wsl', label: 'WSL', sub: 'Windows' },
+];
+
+const active = arches.find(a => a.active) || arches[0];
+---
+
+<Layout title="Download deepin 25" description="Unduh deepin Linux 25.2.0 untuk berbagai arsitektur. deepin adalah distribusi Linux modern dengan DDE 7.0 yang cantik dan mudah digunakan.">
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-gray-900 via-slate-800 to-deepin-900 py-16 lg:py-24">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(26,109,212,0.15)_0%,transparent_50%)]" />
+    <div class="container-main relative text-center">
+      <img src="/images/deepin-id.png" alt="deepin" width="96" height="96" class="w-24 h-24 mx-auto mb-5 drop-shadow-xl" />
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white">
+        Download <span class="text-deepin-400">deepin</span>
+      </h1>
+      <p class="mt-3 text-deepin-200 text-lg">Unduh deepin Linux — Sistem Operasi Modern & Cantik</p>
+    </div>
+  </section>
+
+  <!-- Version & Tabs -->
+  <section class="py-12 bg-white">
+    <div class="container-main">
+      <div class="text-center mb-8">
+        <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-deepin-50 text-deepin-700 text-xs font-semibold tracking-wide uppercase">
+          <i class="fas fa-star text-[10px]" /> Latest Release
+        </span>
+        <h2 class="text-3xl font-extrabold text-gray-900 mt-3">
+          <span class="text-deepin-600">25.2.0</span>
+        </h2>
+        <p class="text-gray-500 mt-1">Pilih arsitektur perangkat Anda</p>
+      </div>
+
+      <!-- Arch Tabs -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8" id="arch-tabs">
+        {arches.map((a) => (
+          <button
+            class={`arch-tab px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+              a.active ? 'bg-deepin-600 text-white shadow-lg shadow-deepin-600/25' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+            }`}
+            data-arch={a.id}
+          >
+            {a.label}
+            {a.sub && <span class="ml-1.5 text-[10px] opacity-60">{a.sub}</span>}
+          </button>
+        ))}
+      </div>
+
+      <!-- Mirror Cards -->
+      {arches.filter(a => a.mirrors).map((arch) => (
+        <div id={`panel-${arch.id}`} class={`arch-panel ${arch.active ? '' : 'hidden'}`}>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            {arch.mirrors.map((m) => (
+              <a href={m.url} target="_blank" rel="noopener" class="card p-5 group hover:-translate-y-1 transition-all duration-300 text-center">
+                <i class={`fas ${m.icon} text-2xl ${m.color} mb-3`} />
+                <h3 class="font-semibold text-gray-900 text-sm">{m.name}</h3>
+                <span class="text-xs text-deepin-600 mt-1.5 inline-flex items-center gap-1 group-hover:underline">
+                  Download <i class="fas fa-arrow-right text-[10px]" />
+                </span>
+              </a>
+            ))}
+          </div>
+
+          <!-- Checksums -->
+          {arch.checksums && (
+            <details class="card p-5 max-w-2xl mx-auto text-sm">
+              <summary class="cursor-pointer font-semibold text-gray-700 hover:text-deepin-600 transition-colors">
+                <i class="fas fa-shield-halved mr-2 text-deepin-500" /> Verifikasi Checksum
+              </summary>
+              <div class="mt-4 space-y-3 text-gray-600">
+                <div>
+                  <span class="font-mono text-xs font-bold text-gray-400">SHA256</span>
+                  <pre class="mt-1 bg-gray-50 rounded-lg p-3 text-xs font-mono overflow-x-auto">{arch.checksums.sha256}</pre>
+                </div>
+                <div>
+                  <span class="font-mono text-xs font-bold text-gray-400">MD5</span>
+                  <pre class="mt-1 bg-gray-50 rounded-lg p-3 text-xs font-mono overflow-x-auto">{arch.checksums.md5}</pre>
+                </div>
+                <div class="bg-deepin-50 rounded-lg p-3 text-xs">
+                  <p class="font-semibold text-deepin-700 mb-1">Terminal (Linux/macOS):</p>
+                  <code class="text-deepin-800">echo "{arch.checksums.sha256} *deepin.iso" | shasum -a 256 --check</code>
+                </div>
+              </div>
+            </details>
+          )}
+        </div>
+      ))}
+
+      <!-- Coming soon panels -->
+      {arches.filter(a => !a.mirrors).map((arch) => (
+        <div id={`panel-${arch.id}`} class={`arch-panel ${arch.active ? '' : 'hidden'}`}>
+          <div class="card p-10 text-center max-w-lg mx-auto">
+            <i class="fas fa-clock text-4xl text-gray-300 mb-4" />
+            <h3 class="font-bold text-gray-700 text-lg">Segera Hadir</h3>
+            <p class="text-gray-500 text-sm mt-1">Dukungan arsitektur {arch.label} sedang dalam pengembangan.</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Help CTA -->
+  <section class="py-12 bg-gray-50">
+    <div class="container-main text-center">
+      <i class="fas fa-circle-question text-3xl text-deepin-300 mb-4" />
+      <h3 class="text-xl font-bold text-gray-900 mb-2">Butuh bantuan instalasi?</h3>
+      <p class="text-gray-500 mb-6">Komunitas kami siap membantu kamu di Telegram.</p>
+      <a href="https://t.me/Linux_deepin_ID" target="_blank" rel="noopener" class="btn-primary">
+        <i class="fab fa-telegram-plane" /> Tanya di Telegram
+      </a>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  document.querySelectorAll('.arch-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const arch = tab.dataset.arch!;
+      document.querySelectorAll('.arch-tab').forEach(t => t.classList.remove('bg-deepin-600', 'text-white', 'shadow-lg', 'shadow-deepin-600/25'));
+      tab.classList.add('bg-deepin-600', 'text-white', 'shadow-lg', 'shadow-deepin-600/25');
+      document.querySelectorAll('.arch-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById(`panel-${arch}`)?.classList.remove('hidden');
+    });
+  });
+</script>
