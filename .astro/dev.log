@@ -20,3 +20,9 @@
 {"message":"[200] / 18ms","label":null,"level":"info"}
 {"message":"/src/styles/global.css","label":"watch","level":"info"}
 {"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"src/pages/index.astro","label":"watch","level":"info"}
+{"message":"[200] / 62ms","label":null,"level":"info"}
+{"message":"src/pages/index.astro","label":"watch","level":"info"}
+{"message":"[200] / 116ms","label":null,"level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
+{"message":"/src/styles/global.css","label":"watch","level":"info"}
