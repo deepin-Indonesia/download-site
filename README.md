@@ -72,7 +72,7 @@ Semua orang bisa berkontribusi — tidak perlu jadi anggota organisasi.
 2. Clone fork kamu: `git clone https://github.com/USERNAME/download-site.git`
 3. `git checkout preview && git checkout -b feat/deskripsi`
 4. Edit, commit, push ke fork kamu
-5. Buka **Pull Request** ke `deepin-Indonesia/download-site` → target: `preview`
+5. Buka **Pull Request (PR)** ke `deepin-Indonesia/download-site` → target: `preview`
 
 ### Untuk anggota organisasi (push langsung)
 
@@ -81,7 +81,7 @@ Semua orang bisa berkontribusi — tidak perlu jadi anggota organisasi.
 3. Buat PR ke `preview`
 4. Setelah review, merge `preview` → `main`
 
-> ⚠️ Jangan push langsung ke `main` — harus lewat PR.
+> ⚠️ Jangan push langsung ke `main` — harus lewat PR (Pull Request).
 
 ## Updating Content
 
@@ -102,21 +102,4 @@ Edit array `mirrors[]` di dalam `arches[]` — tambah atau hapus objek mirror.
 
 WSL tidak punya checksum. Link ada di `arches[]` dengan `id: 'wsl'` — update `mirrors[].url`.
 
-# Commit perubahan submodule di repo utama
-cd .. && git add _theme && git commit -m "chore: update theme"
-```
 
-## Deployment
-
-| Environment | Branch | URL |
-|---|---|---|
-| Preview | `preview` | Netlify |
-| Production | `main` | [os.deepin.id](https://os.deepin.id/) |
-
-```bash
-# Push ke preview (dari main)
-git push origin main:preview
-
-# Push ke production
-git push origin main
-```
