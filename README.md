@@ -8,7 +8,7 @@ Menyediakan link download deepin 25 untuk 5 arsitektur: AMD64, ARM64, LoongArch,
 
 ## Tech Stack
 
-| | |
+| Technology | Detail |
 |---|---|
 | **Framework** | [Astro 7](https://astro.build) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) |
