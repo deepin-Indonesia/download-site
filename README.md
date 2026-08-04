@@ -1,103 +1,94 @@
-# Download Site
+# deepin Indonesia — Download Site
 
-Halaman download deepin — [os.deepin.id](https://os.deepin.id/)
+Halaman download resmi deepin Indonesia: **[os.deepin.id](https://os.deepin.id)**
 
-Dibangun dengan [Jekyll](https://jekyllrb.com/), menggunakan tema bersama dari [deepin-theme-site](https://github.com/deepin-Indonesia/deepin-theme-site) sebagai Git submodule.
+Menyediakan link download deepin 25 untuk 5 arsitektur: AMD64, ARM64, LoongArch, RISC-V, dan WSL — lengkap dengan checksum verifikasi.
 
-## Teknologi
+---
+
+## Tech Stack
 
 | | |
 |---|---|
-| **Static site** | Jekyll 4.x |
-| **Tema** | `_theme/` → submodule [deepin-theme-site](https://github.com/deepin-Indonesia/deepin-theme-site) |
-| **Hosting** | GitHub Pages (`main`) + Netlify (`preview`) |
-| **CSS** | `download.css` (override) + `main.scss` (tema) |
-| **JS** | `download.js` (tab switcher) + `main.js` (tema) |
-| **Icons** | Font Awesome 6 (CDN) |
+| **Framework** | [Astro 7](https://astro.build) |
+| **Styling** | [Tailwind CSS v4](https://tailwindcss.com) |
+| **Icons** | [Font Awesome 6](https://fontawesome.com) (CDN) |
+| **Sitemap** | `@astrojs/sitemap` |
+| **Deploy** | [Cloudflare Pages](https://pages.cloudflare.com) |
+| **Analytics** | Google Analytics 4 (`G-2J4TLB9W7H`) |
+| **Runtime** | Node.js 24 |
 
-## Local Development
-
-```bash
-git clone --recurse-submodules https://github.com/deepin-Indonesia/download-site.git
-cd download-site
-bundle install
-bundle exec jekyll serve
-```
-
-Buka `http://localhost:4000`
-
-## Struktur
+## Project Structure
 
 ```
 download-site/
-├── _theme/                    # Git submodule → deepin-theme-site
-│   ├── _includes/             # header.html, footer.html, why-deepin.html
-│   ├── _layouts/              # default.html
-│   ├── _data/                 # navigation.yml
-│   ├── assets/
-│   │   ├── css/main.scss      # Stylesheet tema
-│   │   ├── js/main.js         # Navigasi, scroll, mobile menu
-│   │   └── images/            # Logo, favicon
-│   └── _config.yml
-│
-├── index.md                   # Halaman utama — hero, headline, tabs, checksums
-├── _config.yml                # Konfigurasi site (url: os.deepin.id)
-├── assets/
-│   ├── css/
-│   │   ├── main.scss          # Import tema
-│   │   └── download.css       # Styling halaman download
-│   ├── js/
-│   │   ├── main.js            # Import tema
-│   │   └── download.js        # Tab switcher arsitektur
-│   └── images/                # deepin-id.png
-├── .github/workflows/         # CI/CD → GitHub Pages
-├── Gemfile
-└── .gitmodules
+├── src/
+│   ├── components/
+│   │   ├── Layout.astro      # Base layout (HTML head, GA4, SEO meta)
+│   │   ├── Header.astro      # Sticky header + nav + mobile menu
+│   │   └── Footer.astro      # Footer dengan social links
+│   ├── data/
+│   │   └── site.ts           # Site config, MAIN_NAV, ABOUT_NAV, social
+│   ├── pages/
+│   │   ├── index.astro       # Halaman download — arsitektur tabs + mirror links + checksum
+│   │   └── 404.astro         # Custom 404
+│   └── styles/
+│       └── global.css        # Tailwind import + @theme colors
+├── public/
+│   ├── images/               # Logo deepin
+│   └── robots.txt            # Crawler rules + Sitemap directive
+├── astro.config.mjs          # site: https://os.deepin.id
+├── package.json
+└── tsconfig.json
 ```
 
-## Panduan Update
+## Getting Started
+
+```bash
+git clone https://github.com/deepin-Indonesia/download-site.git
+cd download-site
+npm install
+npm run dev        # → http://localhost:4322
+npm run build      # Production build → dist/
+```
+
+## Deployment
+
+Push ke branch `main` → Cloudflare Pages auto-deploy.
+
+| Setting | Value |
+|---|---|
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Branch | `main` |
+
+## Contributing
+
+1. Branch dari `preview`: `git checkout -b feat/deskripsi preview`
+2. Commit & push ke branch kamu
+3. Buat PR ke `preview`
+4. Setelah review, merge `preview` → `main`
+
+> ⚠️ Jangan push langsung ke `main`.
+
+## Updating Content
 
 ### Ganti versi deepin
 
-Edit `index.md`:
+Edit `src/pages/index.astro` — dalam array `arches[]`:
 
-1. **Hero:** `<h1>Download <strong>deepin</strong></h1>` — tidak perlu diubah (tanpa versi)
-2. **Heading atas tabs:** `<h2><strong>25.2.0</strong></h2>` — ganti angka versi
-3. **Semua URL download** — update path versi di href (contoh: `releases/25.2.0/`)
-4. **Semua nama file ISO** — update di URL, checksum, dan perintah verifikasi
+1. **Versi di heading:** ubah teks `<h2>25.2.0</h2>`
+2. **URL download:** update path versi di semua `mirrors[].url`
+3. **Checksums:** update `sha256` dan `md5` tiap arsitektur
+4. **Nama ISO:** update `iso` field tiap arsitektur
 
-### Update checksums
+### Tambah/hapus mirror
 
-Edit `index.md` — di dalam `<details class="dl-checksums">` tiap arsitektur:
+Edit array `mirrors[]` di dalam `arches[]` — tambah atau hapus objek mirror.
 
-```html
-<div class="checksum-row"><strong>SHA256</strong><code>HASH_BARU</code></div>
-<div class="checksum-row"><strong>MD5</strong><code>HASH_BARU</code></div>
-```
+### Update WSL links
 
-> NIlai hash di perintah `echo "HASH *file.iso" | ...` juga harus di-update — cari & replace sekaligus.
-
-### Update mirror links
-
-Setiap arsitektur punya 5 mirror di `index.md`. Ganti URL sesuai rilis baru.
-
-### Update headline (rilis terbaru)
-
-Di `index.md`, section `.headline`:
-
-```html
-<h2>deepin 25.2.0 Kini Tersedia!</h2>
-<a href="https://deepin.id/news/deepin-25-2-update/" ...>
-```
-
-## Tema (Submodule)
-
-```bash
-# Cek update
-cd _theme && git fetch origin && git status
-
-# Update
-cd _theme && git pull origin master
+WSL tidak punya checksum. Link ada di `arches[]` dengan `id: 'wsl'` — update `mirrors[].url`.
 
 # Commit perubahan submodule di repo utama
 cd .. && git add _theme && git commit -m "chore: update theme"
