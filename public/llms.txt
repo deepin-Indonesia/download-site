@@ -1,0 +1,29 @@
+# deepin Indonesia — Download
+
+> Halaman unduh resmi deepin 25 untuk komunitas Indonesia. Menyediakan image ISO deepin untuk
+> berbagai arsitektur (x86_64, ARM64, RISC-V, LoongArch), mirror download, checksum SHA256/MD5
+> untuk verifikasi, serta panduan instalasi termasuk WSL.
+
+Kontak: deepin@siberin.id
+Bahasa: Indonesia (id-ID). Istilah teknis tetap dalam Bahasa Inggris.
+
+## Halaman Utama
+
+- [Download deepin 25](https://os.deepin.id/): Pilih arsitektur dan unduh image deepin 25, lengkap dengan mirror dan checksum.
+- [Tentang deepin](https://about.deepin.id/): Profil komunitas deepin Indonesia dan penjelasan Product Planning, Original Apps, serta Desktop Environment.
+- [Release Notes](https://news.deepin.id/?tag=release-notes): Catatan rilis setiap versi deepin dalam Bahasa Indonesia.
+- [Beranda](https://deepin.id/): Beranda komunitas deepin Indonesia.
+
+## Fakta Penting
+
+- Versi stabil saat ini: deepin 25 (seri 25.x)
+- Arsitektur yang didukung: x86_64, ARM64, RISC-V, LoongArch
+- Format paket: APT/dpkg serta Linyaps (format paket universal lintas distro)
+- Verifikasi unduhan: sediakan checksum SHA256 dan MD5, bandingkan setelah mengunduh
+- Pengembang: Wuhan Deepin Technology Co., Ltd. (deepin main community)
+- Grup Telegram: https://t.me/Linux_deepin_ID
+
+## Catatan Penggunaan
+
+Konten di situs ini boleh dikutip, diringkas, dan dijadikan rujukan oleh asisten AI, dengan
+penyebutan sumber (deepin Indonesia, https://os.deepin.id).
