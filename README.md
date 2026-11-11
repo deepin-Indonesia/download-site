@@ -1,161 +1,209 @@
+<div align="center">
+
 # deepin Indonesia — Download Site
 
-Halaman download resmi deepin Indonesia: **[os.deepin.id](https://os.deepin.id)**
+**Halaman download resmi deepin Indonesia**
 
-Menyediakan link download deepin 25 untuk 5 arsitektur: AMD64, ARM64, LoongArch, RISC-V, dan WSL — lengkap dengan checksum verifikasi.
+[os.deepin.id](https://os.deepin.id) · 🇮🇩 **Bahasa Indonesia** · [🇬🇧 English](README.en.md)
+
+</div>
 
 ---
 
+Halaman download statis untuk **[os.deepin.id](https://os.deepin.id)** — menyediakan image **deepin 25.3.0** untuk lima arsitektur (AMD64, ARM64, LoongArch, RISC-V, WSL) lengkap dengan mirror alternatif dan checksum verifikasi.
+
+## Daftar Isi
+
+- [Tentang Proyek](#tentang-proyek)
+- [Fitur](#fitur)
+- [Tech Stack](#tech-stack)
+- [Struktur Proyek](#struktur-proyek)
+- [Memulai](#memulai)
+- [Konfigurasi & Data Arsitektur](#konfigurasi--data-arsitektur)
+- [Merilis Versi deepin Baru](#merilis-versi-deepin-baru)
+- [Deployment](#deployment)
+- [SEO, Performa & AdSense](#seo-performa--adsense)
+- [Analitik](#analitik)
+- [Berkontribusi](#berkontribusi)
+- [Lisensi](#lisensi)
+
+## Tentang Proyek
+
+`download-site` adalah halaman unduh resmi komunitas deepin Indonesia. Setiap arsitektur menampilkan beberapa mirror (Direct Download, Torrent, SourceForge, Baidu Netdisk, Google Drive), checksum SHA256/MD5, serta panduan verifikasi ISO.
+
+### Ekosistem deepin Indonesia
+
+| Subdomain | Repo | Fungsi |
+|---|---|---|
+| [deepin.id](https://deepin.id) | `home-site` | Halaman utama |
+| [os.deepin.id](https://os.deepin.id) | `download-site` ← repo ini | Download image deepin |
+| [news.deepin.id](https://news.deepin.id) | `news-site` | Berita & artikel |
+| [about.deepin.id](https://about.deepin.id) | `about-site` | Tentang & product planning |
+| [donasi.deepin.id](https://donasi.deepin.id) | `donasi-site` | Donasi komunitas |
+
+## Fitur
+
+- **Tab arsitektur** tanpa reload: AMD64, ARM64, LoongArch, RISC-V, WSL.
+- **Beberapa mirror per arsitektur** — Direct CDN, Torrent, SourceForge, Baidu, Google Drive.
+- **Checksum SHA256 + MD5** untuk verifikasi integritas image.
+- **Panduan verifikasi** via terminal (Linux, Windows PowerShell, macOS).
+- **Banner rilis terbaru** yang menautkan ke artikel release notes.
+- **Panduan WSL** yang menautkan ke tutorial instalasi.
+- **SEO lengkap**, Google Analytics, dan Google AdSense.
+
 ## Tech Stack
 
-| Technology | Detail |
+| Teknologi | Detail |
 |---|---|
 | **Framework** | [Astro 7](https://astro.build) |
 | **Styling** | [Tailwind CSS v4](https://tailwindcss.com) |
-| **Icons** | [Font Awesome 6](https://fontawesome.com) (CDN) |
+| **Bahasa** | TypeScript (`strict`), alias `@/*` → `src/*` |
+| **Ikon** | [Font Awesome 6](https://fontawesome.com) (CDN) |
 | **Sitemap** | `@astrojs/sitemap` |
+| **Analitik** | Google Analytics 4 — `G-2J4TLB9W7H` |
+| **Iklan** | Google AdSense — `ca-pub-1345939033565649` |
 | **Deploy** | [Cloudflare Pages](https://pages.cloudflare.com) |
-| **Analytics** | Google Analytics 4 (`G-2J4TLB9W7H`) |
-| **Runtime** | Node.js 24 |
+| **Runtime** | Node.js 20+ |
 
-## Project Structure
+## Struktur Proyek
 
 ```
 download-site/
 ├── src/
 │   ├── components/
-│   │   ├── Layout.astro      # Base layout (HTML head, GA4, SEO meta)
-│   │   ├── Analytics.astro   # Google Analytics 4 + pelacakan perilaku pengguna
-│   │   ├── Header.astro      # Sticky header + nav + mobile menu
-│   │   └── Footer.astro      # Footer dengan social links
+│   │   ├── Layout.astro      # <head>, meta SEO, AdSense, GA
+│   │   ├── Header.astro      # Header sticky + nav + drawer
+│   │   ├── Footer.astro      # Footer + link privasi
+│   │   └── Analytics.astro   # GA4 + pelacakan
 │   ├── data/
-│   │   └── site.ts           # Site config, MAIN_NAV, ABOUT_NAV, social
+│   │   └── site.ts           # Konfigurasi situs
 │   ├── pages/
-│   │   ├── index.astro       # Halaman download — arsitektur tabs + mirror links + checksum
-│   │   └── 404.astro         # Custom 404
+│   │   ├── index.astro       # Halaman download — arches[], tabs, checksum
+│   │   └── 404.astro         # 404 (noindex)
 │   └── styles/
-│       └── global.css        # Tailwind import + @theme colors
+│       └── global.css        # Tailwind + palet deepin
 ├── public/
 │   ├── images/               # Logo deepin
-│   └── robots.txt            # Crawler rules + Sitemap directive
-├── astro.config.mjs          # site: https://os.deepin.id
-├── package.json
-└── tsconfig.json
+│   ├── _redirects            # /privacy/ → https://deepin.id/privacy/ (301)
+│   ├── ads.txt
+│   ├── robots.txt
+│   ├── llms.txt
+│   └── site.webmanifest
+├── astro.config.mjs
+├── tsconfig.json
+└── package.json
 ```
 
-## Getting Started
+## Memulai
+
+### Prasyarat
+
+- [Node.js](https://nodejs.org) 20+
+- npm
+
+### Instalasi & pengembangan
 
 ```bash
 git clone https://github.com/deepin-Indonesia/download-site.git
 cd download-site
 npm install
-npm run dev        # → http://localhost:4322
-npm run build      # Production build → dist/
+npm run dev        # → http://localhost:4321 (atau port berikutnya)
 ```
+
+### Perintah
+
+| Perintah | Kegunaan |
+|---|---|
+| `npm run dev` | Server pengembangan |
+| `npm run build` | Build produksi ke `dist/` |
+| `npm run preview` | Preview hasil build |
+
+## Konfigurasi & Data Arsitektur
+
+Semua data download berada di **`src/pages/index.astro`** dalam array `arches[]`. Setiap objek arsitektur berisi:
+
+| Field | Deskripsi |
+|---|---|
+| `id` | ID arsitektur (`amd64`, `arm64`, `loong64`, `riscv`, `wsl`) |
+| `label` | Label tab (mis. `AMD64`) |
+| `sub` | Sub-label (mis. `x86_64`, `Windows`) |
+| `active` | `true` untuk tab yang tampil pertama |
+| `desc` | Deskripsi singkat |
+| `mirrors[]` | Daftar mirror: `name`, `icon`, `url`, `sub` |
+| `sha256` / `md5` | Checksum image |
+| `iso` | Nama file ISO |
+
+Tab arsitektur di-switch oleh JavaScript kecil di akhir halaman (tanpa reload), dan setiap klik mengirim event `tab_select` ke GA4.
+
+## Merilis Versi deepin Baru
+
+Saat deepin merilis versi baru (mis. dari `25.2.0` ke `25.3.0`):
+
+1. **Ambil checksum resmi** dari CDN deepin:
+   ```bash
+   curl https://cdimage.deepin.com/releases/25.3.0/amd64/SHA256SUMS
+   curl https://cdimage.deepin.com/releases/25.3.0/amd64/MD5SUMS
+   ```
+   Ulangi untuk `arm64`, `loong64`, dan `riscv64`.
+
+2. **Perbarui `arches[]`** di `src/pages/index.astro`:
+   - `mirrors[].url` — ganti versi di path (`/releases/25.3.0/…`).
+   - `mirrors[].sub` — teks kecil di kartu.
+   - `sha256`, `md5`, `iso` — nilai dan nama file baru.
+
+3. **Perbarui heading versi** `<h2>25.3.0</h2>` dan banner rilis (teks + link artikel).
+
+4. **Baidu & Google Drive** adalah folder mirror yang dikelola manual; pastikan isinya sudah diperbarui.
+
+5. **Uji** dengan `npm run build` lalu cek setiap tab.
+
+> **WSL** tidak memiliki checksum. Link-nya ada di `arches[]` dengan `id: 'wsl'` (GitHub Release + Google Drive).
 
 ## Deployment
 
-Push ke branch `main` → Cloudflare Pages auto-deploy.
+Push ke `main` → **Cloudflare Pages** otomatis build & deploy.
 
-| Setting | Value |
+| Setting | Nilai |
 |---|---|
 | Build command | `npm run build` |
 | Output directory | `dist` |
-| Branch | `main` |
+| Production branch | `main` |
 
-## Contributing
+## SEO, Performa & AdSense
 
-Semua orang bisa berkontribusi — tidak perlu jadi anggota organisasi.
+- **Meta & canonical** per halaman, `robots` + `hreflang`, Open Graph & Twitter Card lengkap.
+- **JSON-LD** `Organization`; halaman 404 memakai `noindex, follow`.
+- **Sitemap** otomatis + `robots.txt` + `llms.txt`.
+- **Resource hints** (`preconnect`) dan Font Awesome non-blocking.
+- **Google AdSense** via script + `google-adsense-account` + `public/ads.txt`.
+- **Kebijakan Privasi** dipusatkan di **https://deepin.id/privacy/**; `public/_redirects` mengarahkan `/privacy/` ke sana dengan **301**.
 
-### Untuk kontributor luar (via Fork)
+## Analitik
 
-1. **Fork** repo ini (klik tombol Fork di GitHub)
-2. Clone fork kamu: `git clone https://github.com/USERNAME/download-site.git`
-3. `git checkout preview && git checkout -b feat/deskripsi`
-4. Edit, commit, push ke fork kamu
-5. Buka **Pull Request (PR)** ke `deepin-Indonesia/download-site` → target: `preview`
+Satu property GA4 (`G-2J4TLB9W7H`) untuk semua subdomain; setiap event membawa parameter `site`. Event penting di halaman ini: `tab_select` (ganti arsitektur), `download_click` (klik mirror), `copy_text` (salin checksum), `faq_toggle` (buka verifikasi ISO).
 
-### Untuk anggota organisasi (push langsung)
-
-1. `git checkout preview && git checkout -b feat/deskripsi`
-2. Commit & push
-3. Buat PR ke `preview`
-4. Setelah review, merge `preview` → `main`
-
-> ⚠️ Jangan push langsung ke `main` — harus lewat PR (Pull Request).
-
-## Analitik (Google Analytics 4)
-
-Measurement ID: `G-2J4TLB9W7H` (satu property untuk kelima subdomain).
-
-Pelacakan terpusat di `src/components/Analytics.astro` dan dirender sekali dari
-`src/components/Layout.astro` (`<Analytics />`), jadi **semua halaman otomatis
-terlacak** — tidak perlu menambah script per halaman.
-
-Setiap event membawa parameter `site` (dari `location.host`) supaya data tiap
-subdomain bisa dipisah di GA4. `site` juga dikirim sebagai *user property* agar
-`page_view` ikut terpisah.
-
-| Event | Dipicu oleh |
-| --- | --- |
-| `page_view` | Otomatis setiap halaman |
-| `page_context` | Referrer, viewport, ukuran layar, bahasa, `utm_*` |
-| `page_404` | Halaman tidak ditemukan (+ path-nya) |
-| `scroll_depth` | Scroll 25/50/75/90/100% |
-| `engaged_reader` | 30/60/180/600 detik benar-benar aktif |
-| `visibility_change` | Tab berpindah/aktif kembali |
-| `nav_click` | Klik menu di header atau drawer mobile |
-| `dropdown_toggle` | Buka/tutup dropdown header |
-| `menu_toggle` | Buka/tutup hamburger mobile |
-| `menu_section_toggle` | Buka/tutup seksi di drawer mobile |
-| `tab_select` | Ganti tab arsitektur (AMD64/ARM64/LoongArch/RISC-V/WSL) |
-| `download_click` | Klik mirror (ISO, torrent, `.deb`, `.zip`, dst.) |
-| `cta_click` | Tombol `.btn-primary` / `.btn-outline` / `.btn-ghost` |
-| `copy_text` | Menyalin checksum atau perintah verifikasi |
-| `faq_toggle` | Buka "Verifikasi ISO" / accordion lain |
-| `footer_click` | Klik tautan di footer |
-| `internal_site_click` | Pindah ke subdomain `deepin.id` lain |
-| `outbound_click` | Keluar dari ekosistem `deepin.id` |
-| `anchor_click` | Lompat ke section (`#...`) |
-| `contact_click` | Klik `mailto:` atau `tel:` |
-| `scroll_top` | Tombol kembali ke atas |
-| `form_submit` | Mengirim form |
-| `media_interaction` | Mulai memutar video/embed |
-| `data_track` | Nama bebas dari atribut `data-track` di elemen `<a>` |
-
-### Event kustom
-
-Tempel `data-track` pada elemen `<a>` untuk mengirim event dengan nama sendiri:
+Event kustom bisa ditambahkan dengan `data-track`:
 
 ```html
 <a href="https://cdimage.deepin.com/..." data-track="iso_amd64">Download AMD64</a>
 ```
 
-Atau panggil dari script mana pun — mis. saat tab arsitektur berubah:
+## Berkontribusi
 
-```js
-window.deepinTrack('os_select', { arch: 'arm64' });
-```
+1. Fork repo, lalu buat branch dari `preview`: `git checkout preview && git checkout -b feat/deskripsi`.
+2. Commit dengan pesan jelas, push ke fork, dan buka **Pull Request** ke `deepin-Indonesia/download-site` (target: **`preview`**).
+3. Setelah review, merge `preview` → `main`.
 
-`window.__gaReady === true` menandakan pelacakan siap (berguna untuk pengujian).
+> ⚠️ Jangan push langsung ke `main` — branch itu otomatis tayang.
 
-## Updating Content
+## Lisensi
 
-### Ganti versi deepin
+Dirilis di bawah [MIT License](LICENSE) © deepin Indonesia.
 
-Edit `src/pages/index.astro` — dalam array `arches[]`:
+---
 
-1. **Versi di heading:** ubah teks `<h2>25.2.0</h2>`
-2. **URL download:** update path versi di semua `mirrors[].url`
-3. **Checksums:** update `sha256` dan `md5` tiap arsitektur
-4. **Nama ISO:** update `iso` field tiap arsitektur
+<div align="center">
 
-### Tambah/hapus mirror
+Dibuat dengan ❤️ oleh komunitas [deepin Indonesia](https://deepin.id) · [Telegram](https://t.me/Linux_deepin_ID) · [GitHub](https://github.com/deepin-Indonesia)
 
-Edit array `mirrors[]` di dalam `arches[]` — tambah atau hapus objek mirror.
-
-### Update WSL links
-
-WSL tidak punya checksum. Link ada di `arches[]` dengan `id: 'wsl'` — update `mirrors[].url`.
-
-
+</div>
